@@ -19,11 +19,13 @@ public class FirstApplication {
 	
 	@RequestMapping(method=RequestMethod.PUT,path="trade")
 	private Trade create(){
-		return new Trade();
+		Trade trade=new Trade();
+		trade.setSymbol("FIRST");
+		return trade;
 		
 	}
 	
 	public static void main(String[] args) {
-		SpringApplication.run(FirstApplication.class, args);
+		SpringApplication.run(new Class[]{FirstApplication.class}, args);
 	}
 }
