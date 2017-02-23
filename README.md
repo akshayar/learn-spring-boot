@@ -18,3 +18,13 @@
 	* Cloud Foundary.  
 	
 		
+# Tags
+## 1.0
+Simple Rest Service with 
+* Maven fat jar support 
+	* mvn package
+	* java -jar target\learn-spring-boot-0.0.1-SNAPSHOT.jar	
+* Maven run support
+	* mvn spring-boot:run 
+* Unit Test
+
