@@ -73,12 +73,39 @@
 			<build>
 				<plugins>
 					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
+						<configuration>
+							<systemPropertyVariables>
+								<integration.env>vm</integration.env>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+					<plugin>
 						<groupId>org.springframework.boot</groupId>
 						<artifactId>spring-boot-maven-plugin</artifactId>
 						<configuration>
 							<jvmArguments>-Dspring.profiles.active=vm</jvmArguments>
 						</configuration>
+						<executions>
+							<execution>
+								<id>pre-integration</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>repackage</goal>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>post-integration</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
+
 				</plugins>
 			</build>
 		</profile>
@@ -87,11 +114,89 @@
 			<build>
 				<plugins>
 					<plugin>
-						<groupId>org.springframework.boot</groupId>
-						<artifactId>spring-boot-maven-plugin</artifactId>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-failsafe-plugin</artifactId>
 						<configuration>
-							<jvmArguments>-Dspring.profiles.active=docker</jvmArguments>
+							<systemPropertyVariables>
+								<docker.host.address>${docker.host.address}</docker.host.address>
+								<integration.env>docker</integration.env>
+							</systemPropertyVariables>
 						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>io.fabric8</groupId>
+						<artifactId>docker-maven-plugin</artifactId>
+						<version>0.19.0</version>
+						<configuration>
+							<machine>
+								<name>akshaya1</name>
+							</machine>
+							<images>
+								<image>
+									<name>marketlog</name>
+									<build>
+										<from>java:8</from>
+										<assembly>
+											<descriptorRef>artifact</descriptorRef>
+										</assembly>
+										<ports>
+											<port>8080</port>
+										</ports>
+										<cmd>java -jar maven/${project.name}-${project.version}.jar</cmd>
+									</build>
+									<run>
+										<env>
+											<SPRING_PROFILES_ACTIVE>docker</SPRING_PROFILES_ACTIVE>
+										</env>
+										<ports>
+											<port>8080:8080</port>
+										</ports>
+										<wait>
+											<time>15000</time>
+											<url>http://${docker.host.address}:8080/security/ping</url>
+										</wait>
+									</run>
+								</image>
+							</images>
+						</configuration>
+						<executions>
+							<execution>
+								<id>docker:build</id>
+								<phase>package</phase>
+								<goals>
+									<goal>build</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>docker:start</id>
+								<phase>install</phase>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>docker:stop</id>
+								<phase>install</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>start-it</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>build</goal>
+									<goal>start</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>stop-it</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
 					</plugin>
 				</plugins>
 			</build>
