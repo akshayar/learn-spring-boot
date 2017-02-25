@@ -38,6 +38,7 @@ Property Support - profiles
 
 ## 3.0 
 Integration Testing Support
+
 1. The idea is to test and deploy application on either VM or on docker. 
 2. We should be able to do run integration test on either of them
 3. During pre-integration-test deploy the application on docker on local VM/machine.
@@ -45,9 +46,11 @@ Integration Testing Support
 5. Stop application after post integration test. 
 
 The example
+
 1. The example does not do the setup for docker. That will follow in later tags. At present we assume that docker profile will have additional configurations to create docker images and deploy. 
 
 How to setup?
+
 1. Setup 2 profiles. One for VM and another for docker. 
 2. Create 2 sets of properties. 	
 3. Setup plugin for integration test
@@ -65,7 +68,7 @@ How to setup?
 	</executions>
 </plugin>
 ```
-4. Add pre-integration and post-integration phases in spring-boot plugin. For docker configuration that needs to be done in corresponding configuration. 
+4.Add pre-integration and post-integration phases in spring-boot plugin. For docker configuration that needs to be done in corresponding configuration. 
 ```xml
 <plugin>
 	<groupId>org.springframework.boot</groupId>
@@ -90,7 +93,7 @@ How to setup?
 </plugin>
 
 ```
-5. Add profile configuration. Active profile is passed as JVM argument. We are passing it here and not from command line , since passing from command line affects running on regular UT which should pick the properties from UT's source of properties file. 
+5.Add profile configuration. Active profile is passed as JVM argument. We are passing it here and not from command line , since passing from command line affects running on regular UT which should pick the properties from UT's source of properties file. 
 ```
 <profiles>
 		<profile>
@@ -123,7 +126,7 @@ How to setup?
 		</profile>
 	</profiles>
 ```
-6. Add integration tests with IT suffix.  Notice @IfProfileValue annotation. This is required since for **docker** profile we don't want these set of tests to run. To enable this from command line a JVM argument needs to be passed *-Dintegration.env=vm*. 
+6.Add integration tests with IT suffix.  Notice @IfProfileValue annotation. This is required since for **docker** profile we don't want these set of tests to run. To enable this from command line a JVM argument needs to be passed *-Dintegration.env=vm*. 
 
 ```java
 @RunWith(SpringRunner.class)
@@ -142,7 +145,7 @@ public class SecurityControllerVMIT {
 	}
 }
 ```
-6. Sample run. 
+7.Sample run. 
 * Integration tests on VM
 ```
 mvn verify -Dintegration.env=vm -Pvm
