@@ -111,7 +111,9 @@
 						<artifactId>docker-maven-plugin</artifactId>
 						<version>0.19.0</version>
 						<configuration>
-							<!-- <machine> <name>akshaya1</name> </machine> -->
+							<machine>
+								<name>akshaya1</name>
+							</machine>
 							<images>
 								<image>
 									<name>marketlog</name>
