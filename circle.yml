@@ -1,3 +1,5 @@
+general:
+  build_dir: learn-spring-boot
 test:
   post:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
