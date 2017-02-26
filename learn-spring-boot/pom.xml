@@ -111,12 +111,12 @@
 						<artifactId>docker-maven-plugin</artifactId>
 						<version>0.19.0</version>
 						<configuration>
-							<!-- <machine>
+							<machine>
 								<name>akshaya1</name>
-							</machine> -->
+							</machine>
 							<images>
 								<image>
-									<name>marketlog</name>
+									<name>arawa3/first-spring-boot</name>
 									<build>
 										<from>java:8</from>
 										<assembly>
