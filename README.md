@@ -1,8 +1,3 @@
-- [Objectives](#)
-- [Step 1 - Tag 1.0](#)
-- [Step 2 - Tag 2.0](#)
-- [Step 3 - Tag 3.0](#)
-
 # Objectives
 
 The objective of this project is to create a simple Spring Boot project to start with and then progressively add layers of complexities which can be applied to real world projects. 
@@ -25,7 +20,7 @@ The objective of this project is to create a simple Spring Boot project to start
 	* Cloud Foundary.  
 6. Explore Spring Boot Actuator support. 
 
-# Step 1	- Tag 1.0
+# Step 1 -Simple Spring Boot Project - Tag 1.0
 Simple Rest Service with 
 * Maven fat jar support 
 	* mvn package
@@ -34,7 +29,7 @@ Simple Rest Service with
 	* mvn spring-boot:run 
 * Unit Test
 
-# Step 2 - Tag 2.0 
+# Step 2 - Explore Properties Support and Profiles - Tag 2.0 
 Property Support - profiles
 * Use property for a profile - pass JMV argument
 	* java -jar -Dspring.profiles.active=vm target\learn-spring-boot-0.0.1-SNAPSHOT.jar	
@@ -42,7 +37,7 @@ Property Support - profiles
 	* set SPRING_PROFILES_ACTIVE=vm
 	* java -jar target\learn-spring-boot-0.0.1-SNAPSHOT.jar	
 
-# Step 3 - Tag 3.0 
+# Step 3 - Explore Integration Testing - Tag 3.0 
 
 - [Integration Testing Support](README/integration-testing-support)
 
