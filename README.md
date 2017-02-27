@@ -1,9 +1,8 @@
-**Table of Contents**  *generated with [DocToc](http://doctoc.herokuapp.com/)*
-
 - [Objectives](#)
 - [Step 1 - Tag 1.0](#)
 - [Step 2 - Tag 2.0](#)
 - [Step 3 - Tag 3.0](#)
+
 # Objectives
 
 The objective of this project is to create a simple Spring Boot project to start with and then progressively add layers of complexities which can be applied to real world projects. 
