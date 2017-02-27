@@ -9,8 +9,10 @@ test:
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
   override:
   - mvn verify -Pdocker -Ddocker.keepRunning 
+ 
 deployment:
   hub:
+    branch: master
     commands:
-    - docker login -u $DOCKER_USER -p $DOCKER_PASS
-    - docker push arawa3/first-spring-boot
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push arawa3/first-spring-boot
