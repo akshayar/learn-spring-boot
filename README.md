@@ -43,7 +43,8 @@ Property Support - profiles
 	* java -jar target\learn-spring-boot-0.0.1-SNAPSHOT.jar	
 
 # Step 3 - Tag 3.0 
-Integration Testing Support
+
+- [Integration Testing Support](README/integration-testing-support)
 
 1. The idea is to test and deploy application on either VM or on docker. 
 2. We should be able to do run integration test on either of them
