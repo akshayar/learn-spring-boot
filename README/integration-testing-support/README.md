@@ -103,9 +103,9 @@ public class SecurityControllerVMIT {
 ### How to run 
 * Integration tests on VM
 ```
-mvn verify -Dintegration.env=vm -Pvm
+mvn verify -Pvm
 ```
 * Integration tests on docker
 ```
-mvn verify -Dintegration.env=docker -Pdocker
+mvn verify -Pdocker
 ```
