@@ -46,3 +46,12 @@ Property Support - profiles
 3. During pre-integration-test deploy the application on docker on local VM/machine.
 4. Run the integration test. 
 5. Stop application after post integration test. 
+
+# Step 4 - Explore Docker Support - Tag 4.0/5.0/6.0 
+
+- [Docker Support-IT-CI-DockerHubPush](README/docker-support)
+
+1. Create docker image of the project. 
+2. Use Integration testing support mentioned above to run integration test after docker container deployment
+3. Integrate with CI tool 
+4. Use CI tool push docker image to Docker Hub
