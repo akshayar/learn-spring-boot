@@ -13,12 +13,14 @@ The objective of this project is to create a simple Spring Boot project to start
 4. Explore Docker support
 	* Create docker image using build and package. 
 	* Push the image to docker hub. 
-	* Complete Dev ops cycle. 
-5. Explore cloud support
+5. Complete Dev ops cycle. 
+	* Integrate with CI tool which automates build and integration cycle. 
+	* CI tool should also push to docker hub.
+6. Explore cloud support
 	* AWS deployment. 
 	* Other cloud.
 	* Cloud Foundary.  
-6. Explore Spring Boot Actuator support. 
+7. Explore Spring Boot Actuator support. 
 
 # Step 1 -Simple Spring Boot Project - Tag 1.0
 Simple Rest Service with 
@@ -53,5 +55,5 @@ Property Support - profiles
 
 1. Create docker image of the project. 
 2. Use Integration testing support mentioned above to run integration test after docker container deployment
-3. Integrate with CI tool 
-4. Use CI tool push docker image to Docker Hub
+3. Build Docker Image
+4. Push Docker image to github
