@@ -14,7 +14,7 @@
 ```
 git clone --branch 3.0 https://github.com/akshayar/learn-spring-boot.git
 ```
-### How to run 
+### How to run?
 Go to *learn-spring-boot* directory and run with Maven. 
 * Integration tests on VM
 ```
