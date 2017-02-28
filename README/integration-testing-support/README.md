@@ -10,9 +10,11 @@
 
 ### How to setup?
 
-1. Checkout the source code from tav 3.0.
+1. Checkout the source code from tag 3.0.
 ```
-git clone --branch 3.0 https://github.com/akshayar/learn-spring-boot.git
+git clone https://github.com/akshayar/learn-spring-boot.git
+cd learn-spring-boot
+git checkout 3.0
 ```
 ### How to run?
 Go to *learn-spring-boot* directory and run with Maven. 
