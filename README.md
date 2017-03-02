@@ -57,3 +57,9 @@ Property Support - profiles
 2. Use Integration testing support mentioned above to run integration test after docker container deployment
 3. Build Docker Image
 4. Push Docker image to github
+
+# Step 5 - Complete DevOps cycle
+
+# Step 6 - Explore Cloud Support
+
+- [Cloud Deployment](README/cloud-deployment)
