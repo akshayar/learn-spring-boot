@@ -1,5 +1,3 @@
-general:
-  build_dir: learn-spring-boot
 machine:
   services:
     - docker
