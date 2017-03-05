@@ -1,5 +1,5 @@
 # Cloud Deployment
-[Source Code](../)
+[Source Code](../..)
 
 [Project Home Page](https://github.com/akshayar/learn-spring-boot)
 
