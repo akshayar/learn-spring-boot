@@ -1,5 +1,5 @@
 # Cloud Deployment
-[Source Code](../../learn-spring-boot)
+[Source Code](../)
 
 [Project Home Page](https://github.com/akshayar/learn-spring-boot)
 
@@ -19,7 +19,13 @@ heroku create
 git subtree push --prefix learn-spring-boot heroku master
 heroku ps:scale web=1
 heroku logs 
-heroku open
-## In the URL append security/ping
-heroku ps:scale web=0
+heroku open security/ping
+## Execute the command below to stop the application.
+#heroku ps:scale web=0
 ```
+
+## Heroku Maven Plugin
+
+1. Refer to Heroku guide of deploying application to Heroku using Maven Plugin [Heroku Deploying with Maven Plugin](https://devcenter.heroku.com/articles/deploying-java-applications-with-the-heroku-maven-plugin)
+2. Complete plugin guide at [Heroku Maven Pluhin](https://github.com/heroku/heroku-maven-plugin).
+3. 
