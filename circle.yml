@@ -8,9 +8,14 @@ test:
   override:
   - mvn verify -Pdocker -Ddocker.keepRunning 
  
+##deployment:
+##  hub:
+##    branch: master
+##    commands:
+##      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
+##      - docker push arawa3/first-spring-boot
 deployment:
-  hub:
+  test:
     branch: master
-    commands:
-      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
-      - docker push arawa3/first-spring-boot
+    heroku:
+      appname: limitless-sierra-85988

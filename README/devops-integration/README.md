@@ -22,11 +22,12 @@ git clone https://github.com/akshayar/learn-spring-boot.git
 ## Tag 6.0-Docker-CircleCI-PUSH-HUB and subsequent  code has relevant code.
 git checkout 6.0-Docker-CircleCI-PUSH-HUB
 ```
+2. Ensure that in pom.xml Docker machine configuration (<machine>) is commented
 
 
 ### Explanation
 
-1. Circle.yml configuration. The YAML parser is fragile to extra spaces. Please ensure the configuration is right else the build fails during configuration. 
+1. The example build on Docker image creation in previous steps. Circle.yml configuration. The YAML parser is fragile to extra spaces. Please ensure the configuration is right else the build fails during configuration. 
 ```yaml
 machine:
   services:
@@ -61,7 +62,7 @@ test:
   override:
   - mvn verify -Pdocker -Ddocker.keepRunning 
 ```
-5. The test run command is overwritten to run `mvn verify -Pdocker -Ddocker.keepRunning ` command to run tests. `-Ddocker.keepRunning` is used to ensure that Docker stop goal is not attempted as post-integration-test step. There is bug which fails to stop Docker container after integration test run. 
+5. The test run command is overwritten to run `mvn verify -Pdocker -Ddocker.keepRunning ` command to run tests. Docker profile is specified to build docker image and run integration test on docker.  `-Ddocker.keepRunning` is used to ensure that Docker stop goal is not attempted as post-integration-test step. There is bug which fails to stop Docker container after integration test run. 
 6. Following configuration is added to push the resulting docker image to GitHub. DOCKER_USER, DOCKER_PASS and DOCKER_EMAIL are environment variables to be configured in CircleCI portal.  
 ```yaml
 deployment:
