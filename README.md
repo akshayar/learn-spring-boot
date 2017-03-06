@@ -61,6 +61,6 @@ Property Support - profiles
 # Step 5 - Complete DevOps cycle - Tag 6.0-Docker-CircleCI-PUSH-HUB 
 - [Complete DevOps cycle](README/devops-integration)
 
-# Step 6 - Explore Cloud Support
+# Step 6 - Explore Cloud Support - Tag 7.0-Heroku-Push/8.0-Heroku-Maven-Plugin
 
 - [Cloud Deployment](README/cloud-deployment)
