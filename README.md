@@ -49,7 +49,7 @@ Property Support - profiles
 4. Run the integration test. 
 5. Stop application after post integration test. 
 
-# Step 4 - Explore Docker Support - Tag 4.0/5.0/6.0 
+# Step 4 - Explore Docker Support - Tag 4.0-Docker-Machine/5.0-Docker-Localhost
 
 - [Docker Support-IT-CI-DockerHubPush](README/docker-support)
 
@@ -58,7 +58,8 @@ Property Support - profiles
 3. Build Docker Image
 4. Push Docker image to github
 
-# Step 5 - Complete DevOps cycle
+# Step 5 - Complete DevOps cycle - Tag 6.0-Docker-CircleCI-PUSH-HUB 
+- [Complete DevOps cycle](README/devops-integration)
 
 # Step 6 - Explore Cloud Support
 
