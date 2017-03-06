@@ -26,6 +26,6 @@ public class SecurityControllerHerokuIT extends BaseIT{
 	public void pingtest() {
 		ResponseEntity<String> pingResponse=restTemplate.getForEntity(serverUrl+"/security/ping", String.class);
 		assertEquals(HttpStatus.OK,pingResponse.getStatusCode());
-		assertEquals("OK HEROKU ON CIRCLECI",pingResponse.getBody());
+		assertEquals("OK HEROKU CIRCLECI",pingResponse.getBody());
 	}
 }
