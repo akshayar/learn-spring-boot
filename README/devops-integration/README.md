@@ -125,6 +125,30 @@ deployment:
       - mvn heroku:deploy -Pheroku -DskipTests -Dheroku.appName=$HEROKU_APP_NAME
       - heroku ps:scale web=1 --app $HEROKU_APP_NAME
 ```
+## Issues and resolution
+1. "Build Failure - Unable to remove container" . This is because at CircleCI runtime the docker container can not be stopped/removed as part of post-integration step. This need not be done. 
+2. "NO TESTS". For this add test.post configuration as mentioned above. 
+3. "Action failed: Configure the build". This is due to error in parsing circle.yml. Use online YAML editors to identify issues. 
+4. "Cannot create docker access object: Failed to start 'docker-machine status akshaya1' : Cannot run program "docker-machine": error=2, No such file or directory" . Remove docker machine configuration which is only required to run on windows machine. 
+5. "There was an error while parsing your circle.yml: deployment section :hub must contain a branch or a tag". Branch configuration in deployment section was missing. 
+6. "DOCKER> Unable to pull 'java:8'" . This was a temporary error which went after a while. 
+7. "Failed to deploy application: Could not get API key! Please install the toolbelt and login with `heroku login` or set the HEROKU_API_KEY environment variable." Add HEROKU_API_KEY as CircleCI environment variable. 
+8. "There was an error while parsing your circle.yml: deployment section :test should contain only one of heroku:, commands:, or codedeploy:" .  The error came when deployment.test.commands and deployment.test.heroku were setup. Removed deployment.test.heroku. 
+9. The application was deployed by the URL was not working. This was so, since not dynos were running for app. The command `heroku ps` revealed "No dynos on limitless-sierra-85988" .  Added `heroku ps:scale web=1 --app $HEROKU_APP_NAME`
+10. Following error was came with `heroku ps:scale web=1`. Added `--appp $HEROKU_APP_NAME`
+```
+heroku ps:scale web=1
+ ▸    Error: No app specified
+ ▸    Usage: heroku ps:scale --app APP
+ ▸    We don't know which app to run this on.
+ ▸    Run this command from inside an app folder or specify which app to use with --app APP
+ ▸    
+ ▸    https://devcenter.heroku.com/articles/using-the-cli#app-commands
+
+heroku ps:scale web=1 returned exit code 2
+
+Action failed: heroku ps:scale web=1
+```
 
 ## Learning Resources
 1. Pluralsight course https://www.pluralsight.com/courses/integrating-docker-with-devops-automated-workflows gives a high level introduction. 
