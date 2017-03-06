@@ -23,7 +23,7 @@
 ```shell
 git clone https://github.com/akshayar/learn-spring-boot.git
 ```
-If on Windows -
+If on Windows (since on windows Docker Machine is needed to run Docker container) -
 ```shell
 cd learn-spring-boot
 ### Windows
@@ -63,7 +63,7 @@ Update the image name to point to a your own repository. Currently it points to 
 mvn docker:push -Pdocker -Ddocker.username=<username> -Ddocker.password=<password> -Ddocker.registry=registry.hub.docker.com
 ```
 
-## Explaination
+## Explanation
 
 - Used the profiles setup in step 3 . Docker profile will be used to for docker and VM profile for local VM. 
 - Following docker plugin configuration is added

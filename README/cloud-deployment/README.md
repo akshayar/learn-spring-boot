@@ -13,7 +13,13 @@
 2. There a few modifications. 
   1. Checkout this source code. 
   2. ~~From the root directory instead of deployment using `git push heroku master` use `git subtree push --prefix learn-spring-boot heroku master` . This had to be done since the pom.xml is not in the root directory but in a sub-direcotry by name learn-spring-boot.~~ 
-3. Here are the sequence of commands to run -
+3.  Code checkout
+```shell
+git clone https://github.com/akshayar/learn-spring-boot.git
+## Tag 7.0-Heroku-Push and subsequent code has relevant code
+git checkout 7.0-Heroku-Push
+```
+4. Here are the sequence of commands to run -
 ```
 heroku create
 git push heroku master
@@ -30,7 +36,13 @@ heroku open security/ping
 
 1. Refer to Heroku guide of deploying application to Heroku using Maven Plugin [Heroku Deploying with Maven Plugin](https://devcenter.heroku.com/articles/deploying-java-applications-with-the-heroku-maven-plugin)
 2. Complete plugin guide at [Heroku Maven Pluhin](https://github.com/heroku/heroku-maven-plugin).
-3. Here are the sequence of command to run -
+3. Code checkout
+```shell
+git clone https://github.com/akshayar/learn-spring-boot.git
+## Tag 8.0-Heroku-Maven-Plugin and subsequent code has relevant code
+git checkout 8.0-Heroku-Maven-Plugin
+``` 
+4. Here are the sequence of command to run -
 ```
 heroku create
 mvn heroku:deploy -Pheroku
