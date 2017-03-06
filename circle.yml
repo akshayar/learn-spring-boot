@@ -6,7 +6,7 @@ test:
     - mkdir -p $CIRCLE_TEST_REPORTS/junit/
     - find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} $CIRCLE_TEST_REPORTS/junit/ \;
   override:
-  - mvn verify -Pheroku -Dheroku.appName=limitless-sierra-85988 
+  - mvn verify -Pheroku -Dheroku.appName=$HEROKU_APP_NAME 
  
 ##deployment:
 ##  hub:
@@ -18,5 +18,5 @@ deployment:
   test:
     branch: master
     commands:
-      - mvn heroku:deploy -Pheroku -DskipTests -Dheroku.appName=limitless-sierra-85988
-      - heroku ps:scale web=1
+      - mvn heroku:deploy -Pheroku -DskipTests -Dheroku.appName=$HEROKU_APP_NAME
+      - heroku ps:scale web=1 --app $HEROKU_APP_NAME
