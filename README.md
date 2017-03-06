@@ -12,14 +12,15 @@ The objective of this project is to create a simple Spring Boot project to start
 	* On pre-integration testing start the server using passed in profile. 
 4. Explore Docker support
 	* Create docker image using build and package. 
-	* Push the image to docker hub.
-	* Complete Dev ops cycle.
-	  * Integrate with CI tool which automates build and integration cycle. 
-	  * CI tool should also push to docker hub.
-5. Explore cloud support
+	* Push the image to docker hub. 
+5. Complete Dev ops cycle. 
+	* Integrate with CI tool which automates build and integration cycle. 
+	* CI tool should also push to docker hub.
+6. Explore cloud support
 	* AWS deployment. 
 	* Other cloud.
 	* Cloud Foundary.  
+7. Explore Spring Boot Actuator support. 
 
 # Step 1 -Simple Spring Boot Project - Tag 1.0
 Simple Rest Service with 
@@ -56,8 +57,9 @@ Property Support - profiles
 2. Use Integration testing support mentioned above to run integration test after docker container deployment
 3. Build Docker Image
 4. Push Docker image to github
-5. Integrate with [Circle CI](https://circleci.com/docs/1.0/getting-started/)
 
-# Step 5 - Explore Cloud Support
+# Step 5 - Complete DevOps cycle
+
+# Step 6 - Explore Cloud Support
 
 - [Cloud Deployment](README/cloud-deployment)
