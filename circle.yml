@@ -17,5 +17,8 @@ test:
 deployment:
   test:
     branch: master
+    commands:
+      - mvn heroku:push -Pheroku -DskipTests
+      - heroku ps:scale web=1
     heroku:
       appname: limitless-sierra-85988
