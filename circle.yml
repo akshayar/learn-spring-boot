@@ -8,15 +8,15 @@ test:
   override:
   - mvn verify -Pheroku -Dheroku.appName=$HEROKU_APP_NAME 
  
-##deployment:
-##  hub:
-##    branch: master
-##    commands:
-##      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
-##      - docker push arawa3/first-spring-boot
 deployment:
-  test:
+  hub:
     branch: master
     commands:
-      - mvn heroku:deploy -Pheroku -DskipTests -Dheroku.appName=$HEROKU_APP_NAME
-      - heroku ps:scale web=1 --app $HEROKU_APP_NAME
+      - docker login -u $DOCKER_USER -p $DOCKER_PASS -e $DOCKER_EMAIL
+      - docker push arawa3/first-spring-boot
+##deployment:
+##  test:
+##    branch: master
+##    commands:
+##      - mvn heroku:deploy -Pheroku -DskipTests -Dheroku.appName=$HEROKU_APP_NAME
+##      - heroku ps:scale web=1 --app $HEROKU_APP_NAME
