@@ -1,5 +1,4 @@
 # Objectives
-
 The objective of this project is to create a simple Spring Boot project to start with and then progressively add layers of complexities which can be applied to real world projects. 
 
 1. A simple Spring Boot project with a single rest service. 
