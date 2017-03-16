@@ -20,7 +20,6 @@ The objective of this project is to create a simple Spring Boot project to start
 	* Other cloud.
 	* Cloud Foundary.  
 7. Explore Spring Boot Actuator support. 
-
 # Step 1 -Simple Spring Boot Project - Tag 1.0
 Simple Rest Service with 
 * Maven fat jar support 
