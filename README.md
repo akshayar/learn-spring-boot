@@ -1,5 +1,4 @@
 # Objectives
-
 The objective of this project is to create a simple Spring Boot project to start with and then progressively add layers of complexities which can be applied to real world projects. 
 
 1. A simple Spring Boot project with a single rest service. 
@@ -21,7 +20,6 @@ The objective of this project is to create a simple Spring Boot project to start
 	* Other cloud.
 	* Cloud Foundary.  
 7. Explore Spring Boot Actuator support. 
-
 # Step 1 -Simple Spring Boot Project - Tag 1.0
 Simple Rest Service with 
 * Maven fat jar support 
