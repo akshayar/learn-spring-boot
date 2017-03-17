@@ -3,6 +3,9 @@
  */
 package com.sapient.spring.boot.web;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
@@ -20,6 +23,11 @@ import com.sapient.spring.boot.dto.Security;
 @RestController
 public class SecurityController {
 	
+	@Value("${random.bound.ms}")
+	private int randomBoundMs=100;
+	
+	ThreadLocalRandom random=ThreadLocalRandom.current();
+	
 	private static final Logger logger=Logger.getLogger(SecurityController.class);
 	
 	@Value("${project.name}")
@@ -27,8 +35,24 @@ public class SecurityController {
 
 	@RequestMapping(path="security/ping")
 	public String ping(HttpServletRequest request){
-		logger.info("Pinged from "+request.getRemoteAddr());
+		logger.info("From "+request.getRemoteAddr()+request.getRequestURL());
 		return "OK "+name;
+	}
+	
+	@RequestMapping(path="security/random-latency")
+	public String pingRandomLatency(HttpServletRequest request){
+		
+		logger.info("From "+request.getRemoteAddr()+request.getRequestURL());
+		sleep();
+		return "OK "+name;
+	}
+
+	private void sleep() {
+		try {
+			Thread.sleep(random.nextInt(randomBoundMs));
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,path="security")
