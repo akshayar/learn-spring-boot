@@ -3,12 +3,12 @@
  */
 package com.sapient.spring.boot.web;
 
-import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,12 +23,11 @@ import com.sapient.spring.boot.dto.Security;
 @RestController
 public class SecurityController {
 	
-	@Value("${random.bound.ms}")
 	private int randomBoundMs=100;
 	
 	ThreadLocalRandom random=ThreadLocalRandom.current();
 	
-	private static final Logger logger=Logger.getLogger(SecurityController.class);
+	private static final Logger logger=LoggerFactory.getLogger(SecurityController.class);
 	
 	@Value("${project.name}")
 	private String name;
