@@ -3,6 +3,8 @@
  */
 package com.sapient.spring.boot.web;
 
+import java.util.Date;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +20,7 @@ public class TradeController {
 	
 	@RequestMapping("trade/ping")
 	public String ping(){
-		return "OK";
+		return "OK-New"+new Date();
 	}
 	
 	@RequestMapping(method=RequestMethod.PUT,path="trade")

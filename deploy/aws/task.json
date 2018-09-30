@@ -1,0 +1,39 @@
+{
+	"containerDefinitions": [{
+		"logConfiguration": {
+			"logDriver": "awslogs",
+			"options": {
+				"awslogs-group": "/ecs/learn-sb-ecs",
+				"awslogs-region": "us-east-1",
+				"awslogs-stream-prefix": "ecs"
+			}
+		},
+		"portMappings": [{
+			"hostPort": 80,
+			"protocol": "tcp",
+			"containerPort": 80
+		}],
+		"healthCheck": {
+			"retries": 10,
+			"command": [
+				"bash",
+				"curl -f http://localhost:80/trade/ping|| exit 1"
+			],
+			"timeout": 60,
+			"interval": 10,
+			"startPeriod": 10
+		},
+		"essential": true,
+		"name": "hi-ecs",
+		"image": "025506738155.dkr.ecr.us-east-1.amazonaws.com/learn-sb-ecs"
+	}],
+	"executionRoleArn": "arn:aws:iam::025506738155:role/akshaya-ecs",
+	"taskRoleArn": "arn:aws:iam::025506738155:role/akshaya-ecs",
+	"memory": "512",
+	"cpu": "256",
+	"networkMode": "awsvpc",
+	"family": "learn-sb-ecs",
+	"requiresCompatibilities": [
+		"FARGATE"
+	]
+}
